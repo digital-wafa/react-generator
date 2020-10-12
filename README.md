@@ -1,4 +1,4 @@
-<!-- ![wafa react generator ](images/logo.png) -->
+![wafa react generator config](images/logo.png)
 # react-generator  ![npm version](https://img.shields.io/npm/v/@digital-wafa/react-generator)
 
 A shared react components generator to use in digital wafa projects
