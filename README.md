@@ -24,11 +24,10 @@ Create a react-generator-config.js at the root of your project to override defau
 ### Default configuration
 
 ``` javascript
-{
+module.exports = {
   projectName: 'default',
   typescript: true
 };
-
 ```
 
 ## This generator allows to create two kind of React components (Smart & Dump)
