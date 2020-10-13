@@ -14,7 +14,7 @@ npm install @digital-wafa/react-generator --save-dev
 ## Generate a reusable component
 
 ```
-rg-component <name>
+rg-component
 ```
 
 ## Configuration
