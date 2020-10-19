@@ -47,6 +47,7 @@ Container folder structure :
 index.{ts|js}
 <Component name>.module.css
 <Component name>.slice.{ts|js}
+<Component name>.saga.{ts|js}
 <Component name>.test.js
 <Component name>.{tsx|jsx}
 ```
