@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormattedMessage } from 'react-intl'
 // styles
 import Style from './{{pascalCase name}}.module.css'
 
 interface Props {}
 
-class {{pascalCase name}} extends React.Component<Props> {
-  render() {
-    return (
-      <div className={Style.wrapper}>
-          <FormattedMessage id='{{pascalCase name}}.title' />
-      </div>
-    );
-  }
+const {{pascalCase name}} = ({}:Props) => {
+
+  const [value, setValue] = useState('')
+
+  return (
+    <div className={Style.wrapper}>
+      <FormattedMessage id='{{pascalCase name}}.title' />
+    </div>
+  )
+
 }
 
 export default {{pascalCase name}}
