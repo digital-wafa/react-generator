@@ -1,5 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+interface State {}
+
+export const initialState: State = {
+  isLoading: false,
+  error: ''
+};
+
 const {{pascalCase name}}Slice = createSlice({
   name: `{{pascalCase name}}_SLICE`,
   initialState: {
@@ -7,12 +14,12 @@ const {{pascalCase name}}Slice = createSlice({
   },
   reducers: {
     {{lowerCase name}}Request: (state) => { 
+      state.isLoading = true
+    },
+    {{lowerCase name}}RequestSuccess: (state, action) => {
       state.isLoading = false
     },
-    {{lowerCase name}}Success: (state, action) => {
-      state.isLoading = false
-    },
-    {{lowerCase name}}Failed: (state, action) => {
+    {{lowerCase name}}RequestFailed: (state, action) => {
       state.isLoading = false
     }
   }
@@ -20,9 +27,10 @@ const {{pascalCase name}}Slice = createSlice({
 
 export const {
   {{lowerCase name}}Request,
-  {{lowerCase name}}Success,
-  {{lowerCase name}}Failed
+  {{lowerCase name}}RequestSuccess,
+  {{lowerCase name}}RequestFailed
 } = {{pascalCase name}}Slice.actions
 
-export default {{pascalCase name}}Slice.reducer
+export type {{pascalCase name}}State = ReturnType<typeof {{pascalCase name}}Slice.reducer>;
 
+export default {{pascalCase name}}Slice.reducer

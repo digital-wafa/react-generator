@@ -8,7 +8,7 @@ A shared react components generator to use in digital wafa projects
 ## Installing
 
 ```
-npm install @digital-wafa/react-generator --save-dev
+npm i -g @digital-wafa/react-generator
 ```
 
 ## Generate a reusable component
@@ -48,6 +48,6 @@ index.{ts|js}
 <Component name>.module.css
 <Component name>.slice.{ts|js}
 <Component name>.saga.{ts|js}
-<Component name>.test.js
 <Component name>.{tsx|jsx}
+Tests/<Component name>.test.js
 ```
