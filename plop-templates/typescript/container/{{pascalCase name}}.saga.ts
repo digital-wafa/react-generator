@@ -1,20 +1,21 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 import { 
-  {{pascalCase name}}Request, 
-  {{pascalCase name}}RequestSuccess, 
-  {{pascalCase name}}RequestFailed 
-} from "./Home.slice";
-import { fetch{{pascalCase name}}Api } from "./{{pascalCase name}}.api";
+  {{lowerCase name}}Request, 
+  {{lowerCase name}}RequestSuccess, 
+  {{lowerCase name}}RequestFailed 
+} from "./{{pascalCase name}}.slice";
+import { {{pascalCase name}}RequestApi } from "./{{pascalCase name}}.api";
 
 export function* get{{pascalCase name}}Saga() {
   try {
-    const response = yield call(fetch{{pascalCase name}}Api);
-    yield put({{pascalCase name}}RequestSuccess(response.data));
+    const response = yield call({{pascalCase name}}RequestApi);
+    yield put({{lowerCase name}}RequestSuccess(response.data));
   } catch (error) {
-    yield put({{pascalCase name}}RequestFailed(error));
+    yield put({{lowerCase name}}RequestFailed(error));
   }
 }
 
-export function* {{pascalCase name}}Saga() {
-  yield takeLatest({{pascalCase name}}Request.type, get{{pascalCase name}}Saga);
+// add {{lowerCase name}}Saga to {{destination}}/redux/sagas.js 
+export function* {{lowerCase name}}Saga() {
+  yield takeLatest({{lowerCase name}}Request, get{{pascalCase name}}Saga);
 }

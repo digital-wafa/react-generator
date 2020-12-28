@@ -1,7 +1,7 @@
 let config = require(`${__dirname}/react-generator-config.js`)
 
 try {
-  config = {...config, ...require(`${process.cwd()}/react-generator-config.js`)};
+  config = { ...config, ...require(`${process.cwd()}/react-generator-config.js`) };
 } catch (e) {
   config = config
 }
@@ -10,7 +10,7 @@ module.exports = function (plop) {
 
   const templatesRoot = config.typescript ? './plop-templates/typescript' : './plop-templates/javascript'
 
-  const destination = function(componentType) {
+  const destination = function (componentType) {
     switch (config.projectName) {
       case 'retraite':
         return `${process.cwd()}/src/{{destination}}/${componentType}/{{pascalCase name}}`
@@ -18,7 +18,7 @@ module.exports = function (plop) {
         return `${process.cwd()}/src/${componentType}/{{pascalCase name}}`
     }
   }
-  
+
   plop.setGenerator('react-components-generator', {
     prompts: [{
       type: 'list',
@@ -43,29 +43,18 @@ module.exports = function (plop) {
         { name: 'adherent', value: 'adherent' },
         { name: 'souscripteur', value: 'souscripteur' },
       ],
-      when: function() {
+      when: function () {
         return config.projectName === 'retraite'
       }
     }],
-    actions: function (data) {
-
+    actions: function (prompts) {
       let actions = [];
-
-      if (data.choice === 'component') {
-        actions.push({
-          type: 'addMany',
-          destination: destination('components'),
-          base: `${templatesRoot}/component/`,
-          templateFiles: `${templatesRoot}/component/*`
-        });
-      } else {
-        actions.push({
-          type: 'addMany',
-          destination: destination('containers'),
-          base: `${templatesRoot}/container/`,
-          templateFiles: `${templatesRoot}/container/*`
-        });
-      }  
+      actions.push({
+        type: 'addMany',
+        destination: destination(`${prompts.choice}s`),
+        base: `${templatesRoot}/${prompts.choice}/`,
+        templateFiles: `${templatesRoot}/${prompts.choice}/*`
+      })
       return actions;
     }
   });

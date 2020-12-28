@@ -1,14 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface State {}
+interface State {
+  isLoading: boolean
+  {{lowerCase name}}: any
+  error: string
+}
 
 export const initialState: State = {
   isLoading: false,
+  {{lowerCase name}}: [],
   error: ''
 };
 
 const {{pascalCase name}}Slice = createSlice({
-  name: `{{pascalCase name}}_SLICE`,
+  name: `{{constantCase destination}}_{{constantCase name}}_SLICE`,
   initialState: {
     isLoading : false
   },
@@ -16,11 +21,13 @@ const {{pascalCase name}}Slice = createSlice({
     {{lowerCase name}}Request: (state) => { 
       state.isLoading = true
     },
-    {{lowerCase name}}RequestSuccess: (state, action) => {
+    {{lowerCase name}}RequestSuccess: (state, action: PayloadAction<any>) => {
       state.isLoading = false
+      state.{{lowerCase name}} = action.payload
     },
     {{lowerCase name}}RequestFailed: (state, action) => {
       state.isLoading = false
+      state.error = action.payload
     }
   }
 })
